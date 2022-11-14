@@ -8,12 +8,10 @@ public class Main {
         bst.insert(21);
         bst.insert(76);
         bst.insert(18);
+        bst.insert(27);
         bst.insert(52);
         bst.insert(82);
-        bst.insert(27);
 
-        bst.printAll();
-
-        System.out.println(bst.breadthFirstSearch());
+        System.out.println(bst.preOrderDFS());
     }
 }

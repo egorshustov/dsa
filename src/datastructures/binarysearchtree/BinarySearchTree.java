@@ -8,7 +8,7 @@ public class BinarySearchTree {
 
     private Node root;
 
-    public ArrayList<Integer> breadthFirstSearch() {
+    public ArrayList<Integer> BFS() {
         Node currentNode = root;
         Queue<Node> queue = new ArrayDeque<>();
         ArrayList<Integer> results = new ArrayList<>();
@@ -20,6 +20,25 @@ public class BinarySearchTree {
             if (currentNode.left != null) queue.add(currentNode.left);
             if (currentNode.right != null) queue.add(currentNode.right);
         }
+        return results;
+    }
+
+    public ArrayList<Integer> preOrderDFS() {
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse {
+            Traverse(Node node) {
+                results.add(node.value);
+                if (node.left != null) {
+                    new Traverse(node.left);
+                }
+                if (node.right != null) {
+                    new Traverse(node.right);
+                }
+            }
+        }
+
+        new Traverse(root);
         return results;
     }
 
