@@ -42,6 +42,25 @@ public class BinarySearchTree {
         return results;
     }
 
+    public ArrayList<Integer> postOrderDFS() {
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse {
+            Traverse(Node node) {
+                if (node.left != null) {
+                    new Traverse(node.left);
+                }
+                if (node.right != null) {
+                    new Traverse(node.right);
+                }
+                results.add(node.value);
+            }
+        }
+
+        new Traverse(root);
+        return results;
+    }
+
     public void printAll() {
         printSubTree(root);
     }
